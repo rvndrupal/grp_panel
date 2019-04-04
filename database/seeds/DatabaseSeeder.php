@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
          $this->call(PermissionsTableSeeder::class);
          factory(App\Product::class, 100)->create();
-         factory(App\User::class, 1)->create();
+         factory(App\User::class, 3)->create();
 
 
          Role::create([
@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'username'=>'rodrigorvn',
             'email'=>'rodrigo@gmail.com',
             'ur' => 'Unidad 1',
+            'ue' => 'Ejecutora 2',
             'password'=>bcrypt('rorro13'),
 
         ]);

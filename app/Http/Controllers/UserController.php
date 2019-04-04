@@ -35,6 +35,7 @@ class UserController extends Controller
             'name' => $request['name'],
             'username' => $request['username'],
             'ur' => $request['ur'],
+            'ue' => $request['ue'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
@@ -87,6 +88,7 @@ class UserController extends Controller
         $user->email = $request->get('email');
         $user->username=$request->get('username');
         $user->ur=$request->get('ur');
+        $user->ue=$request->get('ue');
         $user->password = bcrypt($request->get('password'));
         $user->save();
 
