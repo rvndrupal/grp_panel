@@ -7,9 +7,9 @@
 </div>
 
 <div class="from-group col-md-6">
-        {!! Form::label('user_name','Nombre de usuario') !!}
+        {!! Form::label('username','Nombre de usuario') !!}
 
-        {!! Form::text('user_name', null, ['class' => 'form-control']) !!}
+        {!! Form::text('username', null, ['class' => 'form-control']) !!}
 
     </div>
 
@@ -18,18 +18,26 @@
     {!! Form::label('email','Email') !!}
 
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
-
 </div>
+
+
 <div class="from-group col-md-6">
+    {!! Form::label('ur','UR - Unidad Responsable') !!}
+    {{ Form::select('ur', array('Unidad 1' => 'Unidad 1', 'Unidad 2' => 'Unidad 2'), null, ['class' => 'form-control']) }}
+</div>
+
+
+<div class="from-group col-md-12">
     {!! Form::label('password','Password') !!}
 
       {!! Form::password('password', array('class' => 'form-control')) !!}
 
 </div>
+<p>
 <hr>
 
 <h3>Lista de roles</h3>
-<div class="form-group">
+<div class="form-group col-md-12">
     <ul class="list-unstyled">
         @foreach ($roles as $role )
         <li>

@@ -33,6 +33,8 @@ class UserController extends Controller
     {
         $user= User::create([
             'name' => $request['name'],
+            'username' => $request['username'],
+            'ur' => $request['ur'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
@@ -83,14 +85,16 @@ class UserController extends Controller
         $user = User::find($user->id);
         $user->name =$request->get('name');
         $user->email = $request->get('email');
+        $user->username=$request->get('username');
+        $user->ur=$request->get('ur');
         $user->password = bcrypt($request->get('password'));
         $user->save();
-        
+
 
         //actualizamos los roles
         $user->roles()->sync($request->get('roles'));
 
-        return redirect()->route('users.edit', $user->id)
+        return redirect()->route('users.index')
             ->with('info', 'Usuario actualizado con exito');
 
     }
